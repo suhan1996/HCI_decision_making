@@ -1,122 +1,232 @@
 <!DOCTYPE html>
-<head xmlns="http://www.w3.org/1999/html">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>HCIdecisionMakingPresentation</title>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
-    <link href="css/cmcontrol.css" media="screen" rel="stylesheet" />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/splitText.css" />
+        <link rel="stylesheet" href="css/main.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+       <script src="js/vendor/TweenMax.min.js"></script>
+       
+       <link href='http://fonts.googleapis.com/css?family=Wendy+One|Anton' rel='stylesheet' type='text/css'>
     <style>
-        * {
-            outline:0;
-            margin: 0;
-            padding: 0;
-        }
-        .sidebar{
-            display:none;
-        }
-        html, body, canvas {
-            width:100%;
-            height:100%;
-            overflow: hidden;
-            background-color: #fff;
-            cursor: ns-resize;
-        }
-        #title {
-            position: absolute;
-            left: 50%;
-            top: 24px;
-            width: 60px;
-            height: 60px;
-            margin: 0 0 0 -30px;
-            z-index: 33330;
-            cursor: pointer;
-            -webkit-transform: translate3d(0px, 100px, 0px);
-            transform: translate3d(0px, 100px, 0px)
-        }
-        #menu {
-            position: absolute;
-            left: 50%;
-            bottom: 10vmax;
-            width: 60px;
-            height: 60px;
-            margin: 0 0 0 -30px;
-            z-index: 33330;
-            cursor: pointer;
-            -webkit-transform: translate3d(0px, 100px, 0px);
-            transform: translate3d(0px, 100px, 0px)
-        }
+		#chart-area {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		.arrowleft, .play {
+			display:none;
 
-        #menu > ul {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            z-index: 3330;
-            left: 0;
-            top: 0;
-            pointer-events: none
-        }
+		}
+		.question{
+			font-size: xx-large;
+			color:gainsboro;
+		}
+		#splitOnlyLines, .fa-external-link-square{
+			cursor: hand;
+		}
+	</style>
+	</head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+		
+        <!-- Add your site or application content here -->
 
-        #menu > ul > li {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3331;
-            pointer-events: none;
-            background-color: rgba(0, 0, 0, 0.7);
-            overflow: hidden;
-            border-radius: 50%;
-            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2)
-        }
 
-        #menu > ul > li > svg {
-            width: 100%;
-            height: 100%;
-            fill: #fff
-        }
-        footer{
-            position: absolute;
-            left: 44%;
-            bottom: 8vmax;
-            z-index: 33330;
-            -webkit-transform: translate3d(0px, 100px, 0px);
-            transform: translate3d(0px, 100px, 0px)        }
 
-    </style>
+        <div id="mainContainer">
+        	<!--<div id="finalBlock">-->
+        		<!--<div id="finalContainer">-->
+        		<!--<a href='https://github.com/netgfx/splittext/archives/master' class='download-button'>Download<span>Latest version from GitHub</span></a>-->
+        		<!---->
+        		<!--<div class="home"></div>-->
+        		<!--<a id="tutorial" class="helpers" href="http://nightlycoding.com/index.php/2013/02/text-effects-with-timelinemax/">Tutorial<div class="file"></div></a>-->
+        		<!--</div>-->
+        	<!--</div>-->
 
-</head>
+        	 <!--<div id="blockRed">-->
+        		<!--<p class="splitText" id="explode">EXPLODE SOME LETTERS!</p>-->
+        		<!--<div class="controls">-->
+	        		<!--<div class="back"></div>-->
+	        		<!--<div class="arrowleft" title="undo"></div>-->
+	        		<!--<div class='play'></div>-->
+	        		<!--<div class="next"></div>-->
+        		<!--</div>-->
+        	<!--</div>-->
 
-<body>
-<div id="title">
-    <h1>
-        HCI in Decision Making
-    </h1>
-</div>
-<footer>
-    <el>...will be uploading soon</el>
-</footer>
-    <div id="menu">
-        <ul>
 
-            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M41.6 24c-3.5-2-6.7-.2-6.7-.2-1.9-.4-2.8.2-2.8.2-.3-.1-.7-.2-1-.2.1-2.5 1.3-3.7 1.3-3.7 2.3-2.5 4.1-.7 4.1-.7.8.5 1.3-.2 1.3-.2.7-.7 0-1.3 0-1.3-3.5-3.1-7.1.4-7.1.4-2 1.8-2.8 3.9-3.2 5.6-2.3-1.3-4.3-.2-4.3-.2-8.9-1.7-8.5 9.9-8.6 10.4-.3 8 8.8 8.5 8.8 8.5 2.8 1.2 5.6.4 5.6.4 3.4 1.1 6.4-.3 6.4-.3 6.8-.3 8.6-5.5 8.6-5.5 3.6-9.8-2.4-13.2-2.4-13.2zm-7.9 7s1.2-.2 3-2.3c0 0 1.3-1.7 2.6-.8 0 0 2.6 1.9-2.3 3.7-.1.1-3.5 1.1-3.3-.6zm-12.3-3.2c1.3-.9 2.6.8 2.6.8 1.7 2.2 3 2.3 3 2.3.2 1.7-3.3.7-3.3.7-4.8-1.9-2.3-3.8-2.3-3.8zm16 9.8l-1-1.1-1.3 1.1.3 1.2-2.3.7-.2-.7h-2l-.6 1.1-3.4-.5.1-.7-1.9-.7-.4 1.3s-4.7-2.1-4.2-6.5c0 0 2.3 1.9 6.1 2.2v1.3l2.5.7v-1.6h1.8v.9h2.3v-1s4.5-.6 7-1.9c0 .2-.7 1.8-2.8 4.2z"/></svg></li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M35.8 24.1c.4.8.5 1.7.5 2.7 0 1.2-.4 2.2-.9 3.1 9.1.8 15.1 3.3 15.1 3.3-5.1-5.3-10.1-8-14.7-9.1z"/><path d="M24 24.2C15.2 26.6 9.4 33 9.4 33c5.2-1.9 10.3-2.8 14.9-3.3-.5-1-.9-2-.9-3.2 0-.7.2-1.5.6-2.3z"/></svg></li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M30 21.3c-4.8 0-8.7 3.9-8.7 8.7 0 4.8 3.9 8.7 8.7 8.7s8.7-3.9 8.7-8.7c0-4.8-3.9-8.7-8.7-8.7zm0 12.4c-.8-3.2-3.5-3.5-3.5-3.5 3-.7 3.4-3.9 3.4-3.9.4 2.9 3.5 3.8 3.5 3.8-2.9.8-3.4 3.6-3.4 3.6z"/></svg></li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M30 39.4c6.1 0 11-4.9 11-11s-4.9-11-11-11-11 4.9-11 11 4.9 11 11 11zm-2-11.9c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 1-2 2-2z"/><path d="M29.8 43.3c-4.4 0-7.5-1.6-9.4-3.6l-.5.5c2.1 2.1 5.3 3.9 9.9 3.9h.5c1.6 0 6.4-.3 9.8-4.4l-.5-.5c-3.8 4.5-9.4 4.1-9.8 4.1z"/><path d="M29.8 13.7c.3 0 6-.4 9.7 4l.5-.5c-3.4-3.9-8.2-4.4-9.8-4.4h-.5c-4.6 0-7.8 1.8-9.9 3.9l.5.5c2.1-1.9 5.1-3.5 9.5-3.5z"/><path d="M24.8 45.5l-.2.4s2.3 1.2 5.6 1.2c1.6 0 3.5-.3 5.5-1.1l-.2-.4c-5.8 2.5-10.7-.1-10.7-.1z"/></svg></li>
-        </ul>
-    </div>
-<canvas></canvas>
 
-    <script type="text/javascript" src="js/libs/library.js"></script>
-    <script type="text/javascript" src="js/libs/minify.js"></script>
+        	<!--<div id="blockBlue" class="blocks">-->
+        		<!--<p class="splitText" id="scramble">THIS IS A BORING TEXT SCRAMBLE IT!</p>-->
+        		<!--<div class="controls">-->
+        			<!--<div class="back"></div>-->
+        			<!--<div class="arrowleft" title="undo"></div>-->
+        			<!--<div class='play'></div>-->
+        			<!--<div class="next"></div>-->
+        		<!--</div>-->
+        	<!--</div>-->
 
-    <script type="text/javascript" src="js/libs/signals.min.js"></script>
-    <script type="text/javascript" src="js/libs/CMControl.min.js"></script>
-    <script type="text/javascript" src="js/Wave.js"></script>
-    <script>
-        window.onload = Wave.init;
-    </script>
-</body>
+        	<!--<div id="blockGreen" class="blocks">-->
+        		<!--<p class="splitText" id="threeD">3D EXPLODE SOME WORDS OF A PARAGRAPH!</p>-->
+        		<!--<div class="controls">-->
+        			<!--<div class="back"></div>-->
+        			<!--<div class="arrowleft" title="undo"></div>-->
+        			<!--<div class='play'></div>-->
+        			<!--<div class="next"></div>-->
+        		<!--</div>-->
+        	<!--</div>-->
+
+
+        	<div id="blockNavyBlue" class="blocks">
+        		<!--<p class="splitText" id="machinegun">MACHINE GUN SENTENCES! With a COOL effect! And a wicked PAUSE at the END! Are. You. Ready?</p>-->
+				<p class="splitText" id="machinegun">That's All Thank You! Directed by Professor Nov. Made by Suhan(me) from NYUShanghai. Sahaj from Rutgers.</p>
+				<div class="controls">
+	        		<div class="back" title="previous"></div>
+	        		<div class="arrowleft" title="undo"></div>
+	        		<div class='play' title="animate"></div>
+	        		<div class="next" title="next"></div>
+        		</div>
+        	</div>
+			<div id="blockGreen" class="blocks">
+				<!--<p class="splitText" id="smoke">HIDE TEXT IN PLAIN SIGHT AND MAKE AN IMPRESSION!</p>-->
+				<article style="display: inline">
+					<h1>User's Performance</h1>
+					<img src="assets/dis2.png" style="height: 50%;width: 30%">
+					<img src="assets/dis3.png" style="height: 50%;width: 30%">
+					<img src="assets/dis1.png" style="height: 50%;width: 30%">
+
+				</article>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+			<div id="blockGrey" class="blocks">
+				<!--<p class="splitText" id="smoke">HIDE TEXT IN PLAIN SIGHT AND MAKE AN IMPRESSION!</p>-->
+				<article>
+					<h1>Clicks Distribution</h1>
+					<img src="assets/clicks.png" style="height: 30%;width: 30%">
+
+				</article>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+			<div id="blockOrange">
+				<p class="splitText" id="splitOnlyWords" style="margin-top: 10vmax">We haven't finished collecting data.</p>
+				<p class="splitText" id="splitOnlyLetters">But I tracked some user behavior</p>
+				<p class="splitText fa fa-external-link-square" id="splitOnlyLines">
+					</p>
+				<script>
+					document.querySelector('#splitOnlyLines').addEventListener('click',function () {
+                        var win = window.open("https://insights.hotjar.com/h?site=576534&heatmap=1662007&token=a43c4d867ca01a75274c2adc5fd63414&device=desktop&type=movement", '_blank');
+                        win.focus();
+                    })
+				</script>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+
+			<div id="blockBlack" class="blocks">
+
+				<p class="splitText" id="blackout">An online simulator to choose funds [Click2Redirect]</p>
+				<script>
+					document.querySelector('#blackout').addEventListener('click',function () {
+                        var win = window.open("https://sortingfunds.herokuapp.com/", '_blank');
+                        win.focus();
+                    })
+				</script>
+        		 <div class="controls">
+	        		<div class="back"></div>
+	        		<div class="arrowleft" title="undo"></div>
+	        		<div class='play'></div>
+	        		<div class="next"></div>
+        		</div>
+        	</div>
+			<div id="blockBlack2" class="blocks">
+				<div style="margin-top: 15vmax">
+				<p class="question" id="matrix2">What features would the users use to choose funds?</p>
+				<p class="question" id="matrix1">How would payment affect the desicion making performance?</p>
+				</div>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+
+        	<div id="blockWhite" class="selected">
+        		<!--<p class="splitText" id="slide" style="float: none">HCI in Decision Making</p>-->
+				<div id="title">
+				<p id="slide" style="float: none">HCI in Decision Making</p>
+				</div><div class="controls">
+	        		<div class="back" title="previous"></div>
+	        		<div class="arrowleft" title="undo"></div>
+	        		<div class='play' title="animate"></div>
+	        		<div class="next" title="next"></div>
+        		</div>
+        	</div>
+
+
+        </div>
+
+           <!--<div id="hoverOver">-->
+       	<!--<p>Pick an example > </p>-->
+       	<!--<ul id="menuList">-->
+       		<!--<li id="menu_blockWhite">SLIDE</li>-->
+       		<!--<li id="menu_blockBlack">BLACKOUT</li>-->
+       		<!--<li id="menu_blockNavyBlue">MACHINEGUN TEXT</li>-->
+       		<!--<li id="menu_blockGrey">SMOKE</li>-->
+       		<!--<li id="menu_blockGreen">3D</li>-->
+       		<!--<li id="menu_blockBlue">SCRAMBLE</li>-->
+       		<!--<li id="menu_blockBlack2">MATRIX</li>-->
+       		<!--<li id="menu_blockRed">EXPLODE</li>-->
+       		<!--<li id="menu_blockOrange">JUST SPLIT</li>-->
+       		<!--<span>&#45;&#45;&#45;&#45;</span>-->
+       		<!--<li id="menu_finalBlock">DOWNLOAD</li>-->
+       	<!--</ul>-->
+
+
+
+       <!--</div>-->
+        <!--<p class="splitText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/example.js"></script>
+		<script src="js/SplitTextPlugin.js" type="text/javascript"></script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+       <script type="text/javascript">
+
+		
+		</script>
+
+
+        </a>
+    </body>
 </html>
