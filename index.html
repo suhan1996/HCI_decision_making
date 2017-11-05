@@ -1,232 +1,180 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+<head xmlns="http://www.w3.org/1999/html">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>HCIdecisionMakingPresentation</title>
+    <link rel="shortcut icon" href="portfolio/images/logo_sh_1.png">
+    <link rel="stylesheet" href="main/main.min.css">
+    <link rel='stylesheet' href='//fonts.googleapis.com/earlyaccess/kopubbatang.css'>
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/splitText.css" />
-        <link rel="stylesheet" href="css/main.css">
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-
-		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
-       <script src="js/vendor/TweenMax.min.js"></script>
-       
-       <link href='http://fonts.googleapis.com/css?family=Wendy+One|Anton' rel='stylesheet' type='text/css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <link href="css/cmcontrol.css" media="screen" rel="stylesheet" />
     <style>
-		#chart-area {
-			-moz-user-select: none;
-			-webkit-user-select: none;
-			-ms-user-select: none;
-		}
-		.arrowleft, .play {
-			display:none;
+        .p-index-header__name{
+            margin-bottom: 10vmax;
+        }
+        canvas{
+            top:0;
+            left: 0;
+            position: fixed;
+            z-index: -1000;
+        }
+        .hv:hover{
+            color:rgb(255,0,0);
+        }
+        .hvg:hover{
+            color:rgb(255,0,0);
+        }
+        .hvg1:hover{
+            color:rgb(0,0,255);
+        }
+        * {
+            font-family:'Anton', sans-serif;
 
-		}
-		.question{
-			font-size: xx-large;
-			color:gainsboro;
-		}
-		#splitOnlyLines, .fa-external-link-square{
-			cursor: hand;
-		}
-	</style>
-	</head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-		
-        <!-- Add your site or application content here -->
+            outline:0;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar{
+            display:none;
+        }
+        html, body, canvas {
+            width:100%;
+            height:100%;
+            overflow: hidden;
+            background-color: #fff;
+            cursor: ns-resize;
+        }
+        #title {
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            width: 60px;
+            height: 60px;
+            margin: 0 0 0 -30px;
+            color:#C95A65;
 
+            z-index: 33330;
+            cursor: pointer;
+            -webkit-transform: translate3d(0px, 100px, 0px);
+            transform: translate3d(0px, 100px, 0px)
+        }
+        #title1 {
+            position: absolute;
+            color:white;
 
+            left: 50%;
+            bottom: 260px;
+            width: 60px;
+            height: 60px;
+            margin: 0 0 0 -30px;
+            z-index: 33330;
+            cursor: pointer;
+            -webkit-transform: translate3d(0px, 100px, 0px);
+            transform: translate3d(0px, 100px, 0px)
+        }
+        #menu {
+            position: absolute;
+            left: 50%;
+            bottom: 10vmax;
+            width: 60px;
+            height: 60px;
+            margin: 0 0 0 -30px;
+            z-index: 33330;
+            cursor: pointer;
+            -webkit-transform: translate3d(0px, 100px, 0px);
+            transform: translate3d(0px, 100px, 0px)
+        }
 
-        <div id="mainContainer">
-        	<!--<div id="finalBlock">-->
-        		<!--<div id="finalContainer">-->
-        		<!--<a href='https://github.com/netgfx/splittext/archives/master' class='download-button'>Download<span>Latest version from GitHub</span></a>-->
-        		<!---->
-        		<!--<div class="home"></div>-->
-        		<!--<a id="tutorial" class="helpers" href="http://nightlycoding.com/index.php/2013/02/text-effects-with-timelinemax/">Tutorial<div class="file"></div></a>-->
-        		<!--</div>-->
-        	<!--</div>-->
+        #menu > ul {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            z-index: 3330;
+            left: 0;
+            top: 0;
+            pointer-events: none
+        }
 
-        	 <!--<div id="blockRed">-->
-        		<!--<p class="splitText" id="explode">EXPLODE SOME LETTERS!</p>-->
-        		<!--<div class="controls">-->
-	        		<!--<div class="back"></div>-->
-	        		<!--<div class="arrowleft" title="undo"></div>-->
-	        		<!--<div class='play'></div>-->
-	        		<!--<div class="next"></div>-->
-        		<!--</div>-->
-        	<!--</div>-->
+        #menu > ul > li {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3331;
+            pointer-events: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2)
+        }
 
+        #menu > ul > li > svg {
+            width: 100%;
+            height: 100%;
+            fill: #fff
+        }
+        footer{
+            position: absolute;
+            left: 44%;
+            bottom: 8vmax;
+            z-index: 33330;
+            -webkit-transform: translate3d(0px, 100px, 0px);
+            transform: translate3d(0px, 100px, 0px)
+        }
 
+    </style>
 
-        	<!--<div id="blockBlue" class="blocks">-->
-        		<!--<p class="splitText" id="scramble">THIS IS A BORING TEXT SCRAMBLE IT!</p>-->
-        		<!--<div class="controls">-->
-        			<!--<div class="back"></div>-->
-        			<!--<div class="arrowleft" title="undo"></div>-->
-        			<!--<div class='play'></div>-->
-        			<!--<div class="next"></div>-->
-        		<!--</div>-->
-        	<!--</div>-->
+</head>
 
-        	<!--<div id="blockGreen" class="blocks">-->
-        		<!--<p class="splitText" id="threeD">3D EXPLODE SOME WORDS OF A PARAGRAPH!</p>-->
-        		<!--<div class="controls">-->
-        			<!--<div class="back"></div>-->
-        			<!--<div class="arrowleft" title="undo"></div>-->
-        			<!--<div class='play'></div>-->
-        			<!--<div class="next"></div>-->
-        		<!--</div>-->
-        	<!--</div>-->
+<body>
+<div class="p-index-page">
+    <div class="p-index-header">
+        <h1 class="p-index-header__name"><span class="hv">H</span><span class="hv">C</span><span class="hv">I</span> <span class="hv">E</span><span class="hv">x</span><span class="hv">p</span><span class="hv">e</span><span class="hv">r</span><span class="hv">i</span><span class="hv">m</span><span class="hv">e</span><span class="hv">n</span><span class="hv">t</span><span class="hv">|</span> <span class="hv">决</span><span class="hv">策</span><span class="hv">实</span><span class="hv">验</span></h1>
+        <!--<h2 class="p-index-header__url">hansu.studio</h2>-->
+    </div>
+    <div id="index-content" class="p-index-page__in"><div class="p-index-content"><p class="p-index-content__excerpt">
+        <!--<span class="hvg">I</span><span class="hvg">'</span><span class="hvg">m</span> <span class="hvg">i</span><span class="hvg">n</span> <span class="hvg">l</span><span class="hvg">o</span><span class="hvg">v</span><span class="hvg">e</span> <span class="hvg">w</span><span class="hvg">i</span><span class="hvg">t</span><span class="hvg">h</span> <span class="hvg2">c</span><span class="hvg2">r</span><span class="hvg1">e</span><span class="hvg1">a</span><span class="hvg1">t</span><span class="hvg1">i</span><span class="hvg1">n</span><span class="hvg1">g</span> <span class="hvg">s</span><span class="hvg">t</span><span class="hvg">u</span><span class="hvg">f</span><span class="hvg">f</span><span class="hvg">.</span>-->
+    </p> <div class="p-index-content__link"><a href="https://distinguishshapes.herokuapp.com">Attentiveness</a><a href="http://fundchoiceinvestment.herokuapp.com/welcome">Decision Making</a><a href="presentation">Presentation</a></div><div class="p-index-content__contact">
 
+    <!--<div id="title">-->
+    <!--<h1>-->
+        <!--Attentiveness Experiment-->
+    <!--</h1>-->
+<!--</div>-->
+<!--<footer>-->
+    <!--<el>...will be uploading soon</el>-->
+<!--</footer>-->
+    <!--<div id="menu">-->
+        <!--<ul>-->
 
-        	<div id="blockNavyBlue" class="blocks">
-        		<!--<p class="splitText" id="machinegun">MACHINE GUN SENTENCES! With a COOL effect! And a wicked PAUSE at the END! Are. You. Ready?</p>-->
-				<p class="splitText" id="machinegun">That's All Thank You! Directed by Professor Nov. Made by Suhan(me) from NYUShanghai. Sahaj from Rutgers.</p>
-				<div class="controls">
-	        		<div class="back" title="previous"></div>
-	        		<div class="arrowleft" title="undo"></div>
-	        		<div class='play' title="animate"></div>
-	        		<div class="next" title="next"></div>
-        		</div>
-        	</div>
-			<div id="blockGreen" class="blocks">
-				<!--<p class="splitText" id="smoke">HIDE TEXT IN PLAIN SIGHT AND MAKE AN IMPRESSION!</p>-->
-				<article style="display: inline">
-					<h1>User's Performance</h1>
-					<img src="assets/dis2.png" style="height: 50%;width: 30%">
-					<img src="assets/dis3.png" style="height: 50%;width: 30%">
-					<img src="assets/dis1.png" style="height: 50%;width: 30%">
-
-				</article>
-				<div class="controls">
-					<div class="back"></div>
-					<div class="arrowleft" title="undo"></div>
-					<div class='play'></div>
-					<div class="next"></div>
-				</div>
-			</div>
-			<div id="blockGrey" class="blocks">
-				<!--<p class="splitText" id="smoke">HIDE TEXT IN PLAIN SIGHT AND MAKE AN IMPRESSION!</p>-->
-				<article>
-					<h1>Clicks Distribution</h1>
-					<img src="assets/clicks.png" style="height: 30%;width: 30%">
-
-				</article>
-				<div class="controls">
-					<div class="back"></div>
-					<div class="arrowleft" title="undo"></div>
-					<div class='play'></div>
-					<div class="next"></div>
-				</div>
-			</div>
-			<div id="blockOrange">
-				<p class="splitText" id="splitOnlyWords" style="margin-top: 10vmax">We haven't finished collecting data.</p>
-				<p class="splitText" id="splitOnlyLetters">But I tracked some user behavior</p>
-				<p class="splitText fa fa-external-link-square" id="splitOnlyLines">
-					</p>
-				<script>
-					document.querySelector('#splitOnlyLines').addEventListener('click',function () {
-                        var win = window.open("https://insights.hotjar.com/h?site=576534&heatmap=1662007&token=a43c4d867ca01a75274c2adc5fd63414&device=desktop&type=movement", '_blank');
-                        win.focus();
-                    })
-				</script>
-				<div class="controls">
-					<div class="back"></div>
-					<div class="arrowleft" title="undo"></div>
-					<div class='play'></div>
-					<div class="next"></div>
-				</div>
-			</div>
-
-			<div id="blockBlack" class="blocks">
-
-				<p class="splitText" id="blackout">An online simulator to choose funds [Click2Redirect]</p>
-				<script>
-					document.querySelector('#blackout').addEventListener('click',function () {
-                        var win = window.open("https://sortingfunds.herokuapp.com/", '_blank');
-                        win.focus();
-                    })
-				</script>
-        		 <div class="controls">
-	        		<div class="back"></div>
-	        		<div class="arrowleft" title="undo"></div>
-	        		<div class='play'></div>
-	        		<div class="next"></div>
-        		</div>
-        	</div>
-			<div id="blockBlack2" class="blocks">
-				<div style="margin-top: 15vmax">
-				<p class="question" id="matrix2">What features would the users use to choose funds?</p>
-				<p class="question" id="matrix1">How would payment affect the desicion making performance?</p>
-				</div>
-				<div class="controls">
-					<div class="back"></div>
-					<div class="arrowleft" title="undo"></div>
-					<div class='play'></div>
-					<div class="next"></div>
-				</div>
-			</div>
-
-        	<div id="blockWhite" class="selected">
-        		<!--<p class="splitText" id="slide" style="float: none">HCI in Decision Making</p>-->
-				<div id="title">
-				<p id="slide" style="float: none">HCI in Decision Making</p>
-				</div><div class="controls">
-	        		<div class="back" title="previous"></div>
-	        		<div class="arrowleft" title="undo"></div>
-	        		<div class='play' title="animate"></div>
-	        		<div class="next" title="next"></div>
-        		</div>
-        	</div>
+            <!--<li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M30 21.3c-4.8 0-8.7 3.9-8.7 8.7 0 4.8 3.9 8.7 8.7 8.7s8.7-3.9 8.7-8.7c0-4.8-3.9-8.7-8.7-8.7zm0 12.4c-.8-3.2-3.5-3.5-3.5-3.5 3-.7 3.4-3.9 3.4-3.9.4 2.9 3.5 3.8 3.5 3.8-2.9.8-3.4 3.6-3.4 3.6z"/></svg></li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--<div id="title2">-->
+    <!--<h1>-->
+        <!--Decision Making Experiment-->
+    <!--</h1>-->
+<!--</div>-->
 
 
-        </div>
+<!--<div id="title1">-->
+    <!--<h1>-->
+        <!--Presentation-->
+    <!--</h1>-->
+<!--</div>-->
+<canvas></canvas>
 
-           <!--<div id="hoverOver">-->
-       	<!--<p>Pick an example > </p>-->
-       	<!--<ul id="menuList">-->
-       		<!--<li id="menu_blockWhite">SLIDE</li>-->
-       		<!--<li id="menu_blockBlack">BLACKOUT</li>-->
-       		<!--<li id="menu_blockNavyBlue">MACHINEGUN TEXT</li>-->
-       		<!--<li id="menu_blockGrey">SMOKE</li>-->
-       		<!--<li id="menu_blockGreen">3D</li>-->
-       		<!--<li id="menu_blockBlue">SCRAMBLE</li>-->
-       		<!--<li id="menu_blockBlack2">MATRIX</li>-->
-       		<!--<li id="menu_blockRed">EXPLODE</li>-->
-       		<!--<li id="menu_blockOrange">JUST SPLIT</li>-->
-       		<!--<span>&#45;&#45;&#45;&#45;</span>-->
-       		<!--<li id="menu_finalBlock">DOWNLOAD</li>-->
-       	<!--</ul>-->
+    <script type="text/javascript" src="js/libs/library.js"></script>
+    <script type="text/javascript" src="js/libs/minify.js"></script>
 
-
-
-       <!--</div>-->
-        <!--<p class="splitText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
--->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/example.js"></script>
-		<script src="js/SplitTextPlugin.js" type="text/javascript"></script>
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-       <script type="text/javascript">
-
-		
-		</script>
-
-
-        </a>
-    </body>
+    <script type="text/javascript" src="js/libs/signals.min.js"></script>
+    <script type="text/javascript" src="js/libs/CMControl.min.js"></script>
+    <script type="text/javascript" src="js/Wave.js"></script>
+    <script>
+        window.onload = Wave.init;
+    </script>
+</body>
 </html>

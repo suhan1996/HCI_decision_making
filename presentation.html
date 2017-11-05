@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/splitText.css" />
+        <link rel="stylesheet" href="css/main.css">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+       <script src="js/vendor/TweenMax.min.js"></script>
+       
+       <link href='http://fonts.googleapis.com/css?family=Wendy+One|Anton' rel='stylesheet' type='text/css'>
+    <style>
+		#chart-area {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		.arrowleft, .play {
+			display:none;
+
+		}
+		.question{
+			font-size: xx-large;
+			color:gainsboro;
+		}
+		#splitOnlyLines, .fa-external-link-square{
+			cursor: hand;
+		}
+	</style>
+	</head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+		
+        <!-- Add your site or application content here -->
+
+
+
+        <div id="mainContainer">
+        	<!--<div id="finalBlock">-->
+        		<!--<div id="finalContainer">-->
+        		<!--<a href='https://github.com/netgfx/splittext/archives/master' class='download-button'>Download<span>Latest version from GitHub</span></a>-->
+        		<!---->
+        		<!--<div class="home"></div>-->
+        		<!--<a id="tutorial" class="helpers" href="http://nightlycoding.com/index.php/2013/02/text-effects-with-timelinemax/">Tutorial<div class="file"></div></a>-->
+        		<!--</div>-->
+        	<!--</div>-->
+
+        	 <!--<div id="blockRed">-->
+        		<!--<p class="splitText" id="explode">EXPLODE SOME LETTERS!</p>-->
+        		<!--<div class="controls">-->
+	        		<!--<div class="back"></div>-->
+	        		<!--<div class="arrowleft" title="undo"></div>-->
+	        		<!--<div class='play'></div>-->
+	        		<!--<div class="next"></div>-->
+        		<!--</div>-->
+        	<!--</div>-->
+
+
+
+        	<!--<div id="blockBlue" class="blocks">-->
+        		<!--<p class="splitText" id="scramble">THIS IS A BORING TEXT SCRAMBLE IT!</p>-->
+        		<!--<div class="controls">-->
+        			<!--<div class="back"></div>-->
+        			<!--<div class="arrowleft" title="undo"></div>-->
+        			<!--<div class='play'></div>-->
+        			<!--<div class="next"></div>-->
+        		<!--</div>-->
+        	<!--</div>-->
+
+        	<!--<div id="blockGreen" class="blocks">-->
+        		<!--<p class="splitText" id="threeD">3D EXPLODE SOME WORDS OF A PARAGRAPH!</p>-->
+        		<!--<div class="controls">-->
+        			<!--<div class="back"></div>-->
+        			<!--<div class="arrowleft" title="undo"></div>-->
+        			<!--<div class='play'></div>-->
+        			<!--<div class="next"></div>-->
+        		<!--</div>-->
+        	<!--</div>-->
+
+
+        	<div id="blockNavyBlue" class="blocks">
+        		<!--<p class="splitText" id="machinegun">MACHINE GUN SENTENCES! With a COOL effect! And a wicked PAUSE at the END! Are. You. Ready?</p>-->
+				<p class="splitText" id="machinegun">That's All Thank You! Directed by Professor Nov. Made by Suhan(me) from NYUShanghai. Sahaj from Rutgers.</p>
+				<div class="controls">
+	        		<div class="back" title="previous"></div>
+	        		<div class="arrowleft" title="undo"></div>
+	        		<div class='play' title="animate"></div>
+	        		<div class="next" title="next"></div>
+        		</div>
+        	</div>
+			<div id="blockGreen" class="blocks">
+				<!--<p class="splitText" id="smoke">HIDE TEXT IN PLAIN SIGHT AND MAKE AN IMPRESSION!</p>-->
+				<article style="display: inline">
+					<h1>User's Performance</h1>
+					<img src="assets/dis2.png" style="height: 50%;width: 30%">
+					<img src="assets/dis3.png" style="height: 50%;width: 30%">
+					<img src="assets/dis1.png" style="height: 50%;width: 30%">
+
+				</article>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+			<div id="blockGrey" class="blocks">
+				<!--<p class="splitText" id="smoke">HIDE TEXT IN PLAIN SIGHT AND MAKE AN IMPRESSION!</p>-->
+				<article>
+					<h1>Clicks Distribution</h1>
+					<img src="assets/clicks.png" style="height: 30%;width: 30%">
+
+				</article>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+			<div id="blockOrange">
+				<p class="splitText" id="splitOnlyWords" style="margin-top: 10vmax">We haven't finished collecting data.</p>
+				<p class="splitText" id="splitOnlyLetters">But I tracked some user behavior</p>
+				<p class="splitText fa fa-external-link-square" id="splitOnlyLines">
+					</p>
+				<script>
+					document.querySelector('#splitOnlyLines').addEventListener('click',function () {
+                        var win = window.open("https://insights.hotjar.com/h?site=576534&heatmap=1662007&token=a43c4d867ca01a75274c2adc5fd63414&device=desktop&type=movement", '_blank');
+                        win.focus();
+                    })
+				</script>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+
+			<div id="blockBlack" class="blocks">
+
+				<p class="splitText" id="blackout">An online simulator to choose funds [Click2Redirect]</p>
+				<script>
+					document.querySelector('#blackout').addEventListener('click',function () {
+                        var win = window.open("https://sortingfunds.herokuapp.com/", '_blank');
+                        win.focus();
+                    })
+				</script>
+        		 <div class="controls">
+	        		<div class="back"></div>
+	        		<div class="arrowleft" title="undo"></div>
+	        		<div class='play'></div>
+	        		<div class="next"></div>
+        		</div>
+        	</div>
+			<div id="blockBlack2" class="blocks">
+				<div style="margin-top: 15vmax">
+				<p class="question" id="matrix2">What features would the users use to choose funds?</p>
+				<p class="question" id="matrix1">How would payment affect the desicion making performance?</p>
+				</div>
+				<div class="controls">
+					<div class="back"></div>
+					<div class="arrowleft" title="undo"></div>
+					<div class='play'></div>
+					<div class="next"></div>
+				</div>
+			</div>
+
+        	<div id="blockWhite" class="selected">
+        		<!--<p class="splitText" id="slide" style="float: none">HCI in Decision Making</p>-->
+				<div id="title">
+				<p id="slide" style="float: none">HCI in Decision Making</p>
+				</div><div class="controls">
+	        		<div class="back" title="previous"></div>
+	        		<div class="arrowleft" title="undo"></div>
+	        		<div class='play' title="animate"></div>
+	        		<div class="next" title="next"></div>
+        		</div>
+        	</div>
+
+
+        </div>
+
+           <!--<div id="hoverOver">-->
+       	<!--<p>Pick an example > </p>-->
+       	<!--<ul id="menuList">-->
+       		<!--<li id="menu_blockWhite">SLIDE</li>-->
+       		<!--<li id="menu_blockBlack">BLACKOUT</li>-->
+       		<!--<li id="menu_blockNavyBlue">MACHINEGUN TEXT</li>-->
+       		<!--<li id="menu_blockGrey">SMOKE</li>-->
+       		<!--<li id="menu_blockGreen">3D</li>-->
+       		<!--<li id="menu_blockBlue">SCRAMBLE</li>-->
+       		<!--<li id="menu_blockBlack2">MATRIX</li>-->
+       		<!--<li id="menu_blockRed">EXPLODE</li>-->
+       		<!--<li id="menu_blockOrange">JUST SPLIT</li>-->
+       		<!--<span>&#45;&#45;&#45;&#45;</span>-->
+       		<!--<li id="menu_finalBlock">DOWNLOAD</li>-->
+       	<!--</ul>-->
+
+
+
+       <!--</div>-->
+        <!--<p class="splitText">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/example.js"></script>
+		<script src="js/SplitTextPlugin.js" type="text/javascript"></script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+       <script type="text/javascript">
+
+		
+		</script>
+
+
+        </a>
+    </body>
+</html>

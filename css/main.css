@@ -262,7 +262,7 @@ p{
 
 #blockRed>.splitText{
 	font-size:62px !important;
-	font-family:'Anton' sans-serif; 
+	font-family:'Anton', sans-serif;
 }
 p>#blockOrange>.splitText{
 	margin-top:0;
